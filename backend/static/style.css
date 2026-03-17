@@ -1,0 +1,542 @@
+/* 🌙 Dark Theme */
+body {
+  background-color: #0d1117;
+  color: #f0f6fc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #0ff;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #58a6ff;
+  border-bottom: 2px solid #30363d;
+  padding-bottom: 5px;
+}
+
+footer {
+  text-align: center;
+  color: #999;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.dashboard {
+  max-width: 900px;
+  margin: auto;
+  background: #161b22;
+  border-radius: 10px;
+  padding: 20px 40px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Buttons */
+button {
+  background-color: #238636;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 8px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #2ea043;
+}
+
+.actions {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Slots Grid */
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.slot {
+  background-color: #238636;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 255, 100, 0.3);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.slot:hover {
+  transform: scale(1.05);
+}
+
+.slot.booked {
+  background-color: #da3633;
+  box-shadow: 0 0 8px rgba(255, 80, 80, 0.5);
+}
+
+/* Ledger Box */
+.ledger-box {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 10px;
+  color: #ccc;
+  min-height: 100px;
+  overflow-y: auto;
+}
+
+.ledger-entry {
+  background: #161b22;
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 6px;
+  border-left: 4px solid #58a6ff;
+}
+
+/* Welcome */
+.welcome {
+  text-align: center;
+  font-size: 18px;
+  color: #ffb86c;
+  margin-bottom: 15px;
+}
+/* ============================= */
+/* 🔐 LOGIN PAGE STYLING */
+/* ============================= */
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0d1117;
+}
+
+.login-container {
+  background: #161b22;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  text-align: center;
+  width: 350px;
+}
+
+.login-container h1 {
+  color: #0ff;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.login-container input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #fff;
+  font-size: 15px;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #0ff;
+  box-shadow: 0 0 5px #0ff;
+}
+
+.footer-text {
+  margin-top: 20px;
+  color: #0ff;
+  font-size: 14px;
+}
+/* ============================
+   💳 Payment Modal Styling
+   ============================ */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.payment-modal.show {
+  opacity: 1;
+}
+
+.payment-content {
+  background: #121212;
+  color: #fff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+.payment-content h2 {
+  margin-bottom: 10px;
+  color: #00e5ff;
+}
+
+.payment-content input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #00e5ff;
+  margin-top: 15px;
+  background: #1c1c1c;
+  color: #fff;
+  text-align: center;
+}
+
+.payment-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.payment-actions button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+#pay-btn {
+  background-color: #00e676;
+  color: black;
+}
+
+#pay-btn:hover {
+  background-color: #00b050;
+}
+
+#cancel-btn {
+  background-color: #ff5252;
+  color: white;
+}
+
+#cancel-btn:hover {
+  background-color: #e53935;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* ==========================================================
+   💳 Payment Modal Styling
+========================================================== */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+.payment-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.payment-content {
+  background: #0b0b0b;
+  color: #e0f7fa;
+  padding: 25px 35px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  width: 380px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+.payment-content h2 {
+  color: #00e5ff;
+  margin-bottom: 8px;
+}
+.payment-content p {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.card-fields input {
+  width: 90%;
+  margin: 6px 0;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #121212;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+}
+.inline-fields {
+  display: flex;
+  justify-content: space-between;
+}
+.inline-fields input {
+  width: 45%;
+}
+
+.payment-actions {
+  margin-top: 15px;
+}
+.payment-actions button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.2s;
+}
+#pay-btn {
+  background: #00e676;
+  color: #000;
+}
+#cancel-btn {
+  background: #ff5252;
+  color: #fff;
+}
+#pay-btn:hover {
+  background: #00ff80;
+}
+#cancel-btn:hover {
+  background: #ff7676;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ==========================================================
+   🚗 Vehicle Details Page Styling (Dark Premium Design)
+   ========================================================== */
+
+.vehicle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.vehicle-container {
+  width: 550px;
+  background: #161b22;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+}
+
+.page-title {
+  text-align: center;
+  color: #00fff2;
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.input-label {
+  color: #f0f6fc;
+  font-size: 16px;
+  margin-top: 10px;
+  display: block;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #fff;
+  font-size: 15px;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #00fff2;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+/* Vehicle Box */
+.vehicle-box {
+  background: #0d1117;
+  padding: 18px;
+  margin-top: 15px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+  border: 1px solid #1f2937;
+}
+
+.vehicle-title {
+  color: #00fff2;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background: #00e6cc;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background: #00fff2;
+}
+
+.btn-danger {
+  background: #ff4444;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-danger:hover {
+  background: #ff6666;
+}
+.payment-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+
+.payment-modal.show {
+  opacity: 1; visibility: visible;
+}
+
+.payment-box {
+  background: #0d1117;
+  padding: 25px 30px;
+  border-radius: 15px;
+  width: 380px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 20px rgb(0,255,255,0.3);
+}
+
+.pay-option {
+  width: 90%;
+  background: #111;
+  border: 1px solid #0ff;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 8px 0;
+  color: #0ff;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.pay-option:hover {
+  background: #0ff;
+  color: #000;
+}
+
+.input-field, .payment-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #111;
+  border: 1px solid #0ff;
+  border-radius: 8px;
+  color: #0ff;
+}
+
+.inline-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inline-fields input {
+  width: 45%;
+}
+
+.pay-btn {
+  background: #00e676;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-btn, .cancel-btn {
+  margin-top: 12px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #ff5252;
+  color: #fff;
+  cursor: pointer;
+}
+
+.qr-img {
+  width: 200px;
+  height: 200px;
+  margin: 10px 0;
+  border-radius: 10px;
+}

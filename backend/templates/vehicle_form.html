@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details | Smart Parking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="vehicle-wrapper">
+        <div class="vehicle-container">
+
+            <h1 class="page-title">🚗 Vehicle Details</h1>
+
+            <!-- Number of vehicles -->
+            <label class="input-label">Number of vehicles:</label>
+            <input type="number" id="vehicle-count" placeholder="Enter number of vehicles"
+                   oninput="renderVehicleForms()" class="text-input">
+
+            <!-- Dynamic vehicle blocks -->
+            <div id="vehicle-list"></div>
+
+            <!-- Slots -->
+            <label class="input-label">Slots required:</label>
+            <input type="number" id="slot-limit" placeholder="Enter slot limit" class="text-input">
+
+            <!-- Buttons -->
+            <div class="btn-row">
+                <button id="save-vehicle" class="btn-primary">Save & Continue</button>
+                <button onclick="logout()" class="btn-danger">Logout</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+        function logout() {
+            localStorage.removeItem("currentUser");
+            window.location.href = "/";
+        }
+
+        // ---------------------- DYNAMIC VEHICLE BOXES ----------------------
+        function renderVehicleForms() {
+            const count = parseInt(document.getElementById("vehicle-count")?.value || 0);
+            const container = document.getElementById("vehicle-list");
+
+            container.innerHTML = "";
+
+            for (let i = 1; i <= count; i++) {
+                const box = `
+                    <div class="vehicle-box">
+                        <h3 class="vehicle-title">Vehicle ${i}</h3>
+
+                        <input type="text" id="plate-${i}" 
+                               placeholder="Vehicle Number (e.g., KA01AB1234)" 
+                               class="text-input">
+
+                        <select id="vtype-${i}" class="text-input">
+                            <option value="Car">Car</option>
+                            <option value="Bike">Bike</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Van">Van</option>
+                        </select>
+                    </div>
+                `;
+                container.innerHTML += box;
+            }
+        }
+    </script>
+</body>
+</html>

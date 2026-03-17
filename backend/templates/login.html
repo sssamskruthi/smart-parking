@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Login</title>
+
+    <!-- Correct CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h1>🔒 Smart Parking Login</h1>
+
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+
+            <div class="actions">
+                <button id="login-btn">Login</button>
+                <button id="register-btn">Register</button>
+            </div>
+
+            <p class="footer-text">🚗 Welcome to the Blockchain-Enabled Smart Parking System</p>
+        </div>
+    </div>
+
+    <!-- IMPORTANT FIX: force script to load AFTER page -->
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
+    <!-- Debug check -->
+    <script>
+        console.log("Login page loaded ✔️");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>🚗 Blockchain-Enabled Smart Parking System</h1>
+        <p class="welcome">👋 Welcome, {{ request.args.get('user', 'User') }}!</p>
+
+        <div class="actions">
+            <button id="refresh-slots">🔄 Refresh Slots</button>
+            <button id="view-ledger">📜 View Blockchain Ledger</button>
+        </div>
+
+        <section class="slots-section">
+            <h2>🅿️ Available Parking Slots</h2>
+            <div id="slots" class="slots-grid">Loading slots...</div>
+        </section>
+
+        <section class="ledger-section">
+            <h2>📒 Blockchain Transaction Ledger</h2>
+            <div id="ledger" class="ledger-box">No transactions yet...</div>
+        </section>
+
+        <footer>© 2025 Smart Parking System | Blockchain Enabled</footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
