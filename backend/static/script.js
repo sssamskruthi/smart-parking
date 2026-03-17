@@ -3,7 +3,7 @@
 // ==========================================================
 
 // IMPORTANT FIX FOR RENDER
-const apiBase = "";
+const apiBase = window.location.origin;
 
 // ==========================================================
 // 🔐 USER SESSION MANAGEMENT
