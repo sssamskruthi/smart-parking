@@ -957,5 +957,40 @@
     "data": "\ud83c\udd7f\ufe0f lalitha booked Slot 5 at 2026-03-03 10:57:28",
     "previous_hash": "ce0aaa255ab5a2606ecd0231c6b2bc03ca6179ec6a812c89a9d5ce265431f39c",
     "hash": "08ba66cdde878bcd7efcf728a4e48bd386c24137050b92a31e3c68b8df514b43"
+  },
+  {
+    "index": 137,
+    "timestamp": "2026-03-18 01:49:53",
+    "data": "\ud83d\udc64 New user registered: sam",
+    "previous_hash": "08ba66cdde878bcd7efcf728a4e48bd386c24137050b92a31e3c68b8df514b43",
+    "hash": "dd7e4e8088c5e2b31fc7a3d10296776159165b5b06d5e42133a184533ba2ca43"
+  },
+  {
+    "index": 138,
+    "timestamp": "2026-03-18 01:50:09",
+    "data": "\ud83d\ude97 sam registered 3 vehicle(s), slot limit = 3",
+    "previous_hash": "dd7e4e8088c5e2b31fc7a3d10296776159165b5b06d5e42133a184533ba2ca43",
+    "hash": "ee07107138f93637267e94c0ecb25c873ea45972e8f874bb28a8f427a704535d"
+  },
+  {
+    "index": 139,
+    "timestamp": "2026-03-18 01:50:13",
+    "data": "\ud83c\udd7f\ufe0f sam booked Slot 3 at 2026-03-18 01:50:13",
+    "previous_hash": "ee07107138f93637267e94c0ecb25c873ea45972e8f874bb28a8f427a704535d",
+    "hash": "7dc9314ef06a5770c2f2a2093d9a38609aeee48ac82ae161406796f0d03bece2"
+  },
+  {
+    "index": 140,
+    "timestamp": "2026-03-18 01:50:14",
+    "data": "\ud83c\udd7f\ufe0f sam booked Slot 10 at 2026-03-18 01:50:14",
+    "previous_hash": "7dc9314ef06a5770c2f2a2093d9a38609aeee48ac82ae161406796f0d03bece2",
+    "hash": "16cb16960ee2b6a9a8e324ae89598fc8e0ba38260f895f225938f11336ebe5e7"
+  },
+  {
+    "index": 141,
+    "timestamp": "2026-03-18 01:50:15",
+    "data": "\ud83c\udd7f\ufe0f sam booked Slot 12 at 2026-03-18 01:50:15",
+    "previous_hash": "16cb16960ee2b6a9a8e324ae89598fc8e0ba38260f895f225938f11336ebe5e7",
+    "hash": "8474e5024c5db79b7392298874806535ff30ae0014178577e3b6098a7f96f576"
   }
 ]

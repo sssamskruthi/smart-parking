@@ -261,44 +261,71 @@ def calculate_bill(slot_id):
 
 @app.route("/release/<int:slot_id>", methods=["POST"])
 def release_slot(slot_id):
+
     data = request.json or {}
     username = data.get("username")
-    paid = data.get("paid", None)  # client sends paid amount
+    paid = data.get("paid", None)
 
-    if username is None:
+    if not username:
         return jsonify({"message": "Provide username"}), 400
 
     for s in SLOTS:
+
         if s["id"] == slot_id:
+
             if not s["booked"]:
                 return jsonify({"message": "Slot not booked"}), 400
+
             if s["user"] != username:
-                return jsonify({"message": f"🚫 You cannot release this slot — it belongs to {s['user']}!"}), 403
+                return jsonify({"message": "Not your slot"}), 403
 
-            s["end_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            minutes, bill = compute_bill_minutes(s["start_time"], s["end_time"])
+            # calculate bill WITHOUT releasing yet
+            end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-            # If client hasn't sent a 'paid' amount, return 402 with expected amount (like "payment required")
+            minutes, bill = compute_bill_minutes(
+                s["start_time"],
+                end_time
+            )
+
+            # ✅ IMPORTANT → first ask payment
             if paid is None:
-                return jsonify({"message": "Payment required", "amount_due": bill}), 402
+                return jsonify({
+                    "message": "Payment required",
+                    "amount_due": bill
+                }), 402
 
+            # check payment
             try:
                 paid_val = float(paid)
-            except Exception:
-                return jsonify({"message": "Provide a numeric paid amount", "expected": bill}), 400
+            except:
+                return jsonify({
+                    "message": "Invalid payment",
+                    "expected": bill
+                }), 400
 
-            if paid_val + 1e-9 < bill:
-                return jsonify({"message": f"Incorrect payment amount! Expected ₹{bill}.", "expected": bill}), 400
+            if paid_val < bill:
+                return jsonify({
+                    "message": "Incorrect amount",
+                    "expected": bill
+                }), 400
 
-            # success -> release slot
-            username_released = s["user"]
+            # ✅ NOW release slot
             s["booked"] = False
             s["user"] = None
             s["start_time"] = None
             s["end_time"] = None
-            blockchain.add_block(f"💰 {username_released} released Slot {slot_id}. Duration: {minutes} min, Paid ₹{paid_val}")
-            return jsonify({"message": f"Slot {slot_id} released. Bill: ₹{bill} ({minutes} min). Paid: ₹{paid_val}"})
+
+            blockchain.add_block(
+                f"{username} released Slot {slot_id} | {minutes} min | Paid ₹{paid_val}"
+            )
+
+            return jsonify({
+                "message": f"Slot {slot_id} released",
+                "bill": bill
+            })
+
     return jsonify({"message": "Slot not found"}), 404
+
 
 # -------------------------
 # Blockchain endpoints
